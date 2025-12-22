@@ -113,6 +113,30 @@
         .parks-container { background: linear-gradient(to right, #f1f8e9, #fff); border-left: 5px solid #7cb342; padding: 15px; border-radius: 8px; margin-top: 20px; margin-bottom: 10px; }
         .parks-title { font-weight: 800; color: #33691e; margin-bottom: 5px; display: block; font-family: 'Montserrat', sans-serif; }
         h2.provincia-title { color: #1b5e20; font-family: 'Montserrat', sans-serif; font-size: 28px; border-bottom: 3px solid #a5d6a7; padding-bottom: 8px; margin-top: 0; }
+/* --- ESTILOS DE COOKIES (NUEVO) --- */
+        #cookie-banner {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: rgba(30, 30, 30, 0.95); color: white;
+            padding: 15px 20px; box-sizing: border-box;
+            z-index: 20000; display: none; /* Oculto por defecto hasta que JS lo active */
+            flex-direction: row; align-items: center; justify-content: center; gap: 20px;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.2); backdrop-filter: blur(5px);
+            font-family: 'Lato', sans-serif; font-size: 14px;
+        }
+        #cookie-text a { color: #ff9800; text-decoration: none; font-weight: bold; }
+        #cookie-text a:hover { text-decoration: underline; }
+        .cookie-buttons { display: flex; gap: 10px; }
+        .cookie-btn {
+            border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.2s;
+        }
+        .btn-accept { background: #2e7d32; color: white; }
+        .btn-accept:hover { background: #1b5e20; }
+        .btn-reject { background: transparent; border: 1px solid #aaa; color: #ccc; }
+        .btn-reject:hover { border-color: white; color: white; }
+        
+        @media (max-width: 768px) {
+            #cookie-banner { flex-direction: column; text-align: center; padding-bottom: 25px; }
+        }
     </style>
 </head>
 <body>
@@ -123,6 +147,16 @@
         <span id="close-btn">×</span>
         <img id="lightbox-img" src="" alt="Imagen ampliada">
         <div id="caption"></div>
+    </div>
+<div id="cookie-banner">
+        <div id="cookie-text">
+            Usamos cookies para mejorar tu experiencia y analizar el tráfico. 
+            Puedes leer nuestra <a href="politica.html" target="_blank">Política de Privacidad</a>.
+        </div>
+        <div class="cookie-buttons">
+            <button class="cookie-btn btn-reject" onclick="rejectCookies()">Rechazar</button>
+            <button class="cookie-btn btn-accept" onclick="acceptCookies()">Aceptar</button>
+        </div>
     </div>
 
     <div id="sidebar">
@@ -804,7 +838,27 @@
         function closeLightbox() {
             document.getElementById('lightbox').classList.remove('active');
         }
+// --- LOGICA DEL BANNER DE COOKIES ---
+        function checkCookies() {
+            if (!localStorage.getItem('cookieConsent')) {
+                document.getElementById('cookie-banner').style.display = 'flex';
+            }
+        }
 
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+
+        function rejectCookies() {
+            localStorage.setItem('cookieConsent', 'rejected');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+
+        // Ejecutar al cargar la web
+        document.addEventListener("DOMContentLoaded", function() {
+            checkCookies();
+        });
     </script>
 </body>
 </html>
