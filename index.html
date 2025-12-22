@@ -860,5 +860,44 @@
             checkCookies();
         });
     </script>
+<div id="cookie-banner">
+    <div id="cookie-text">
+        Usamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra 
+        <a href="politica-privacidad.html" target="_blank">Política de Privacidad</a>.
+    </div>
+    <div class="cookie-buttons">
+        <button id="accept-btn" class="cookie-btn btn-accept">Aceptar</button>
+        <button id="reject-btn" class="cookie-btn btn-reject">Rechazar</button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const cookieBanner = document.getElementById("cookie-banner");
+        const acceptBtn = document.getElementById("accept-btn");
+        const rejectBtn = document.getElementById("reject-btn");
+
+        // Comprobar si el usuario ya decidió antes
+        if (!localStorage.getItem("cookieConsent")) {
+            // Si no hay rastro, mostramos el banner tras 1 segundo
+            setTimeout(() => {
+                cookieBanner.style.display = "flex";
+            }, 1000);
+        }
+
+        // Si acepta
+        acceptBtn.addEventListener("click", () => {
+            localStorage.setItem("cookieConsent", "accepted");
+            cookieBanner.style.display = "none";
+            // Aquí podrías activar Google Analytics si lo usas
+        });
+
+        // Si rechaza
+        rejectBtn.addEventListener("click", () => {
+            localStorage.setItem("cookieConsent", "rejected");
+            cookieBanner.style.display = "none";
+        });
+    });
+</script>
 </body>
 </html>
