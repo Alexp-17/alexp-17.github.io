@@ -828,7 +828,40 @@
         function closeLightbox() {
             document.getElementById('lightbox').classList.remove('active');
         }
+<style>
+    /* Estilos rápidos para el footer */
+    #main-footer {
+        background-color: #1b5e20; /* Verde oscuro a juego */
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-size: 13px;
+        position: relative;
+        z-index: 2000; /* Por encima del mapa pero debajo del banner de cookies */
+        width: 100%;
+        font-family: 'Montserrat', sans-serif;
+    }
+    #main-footer a {
+        color: #a5d6a7;
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: bold;
+    }
+    #main-footer a:hover { text-decoration: underline; color: white; }
+    
+    /* Ajuste para móvil: que el footer no tape botones */
+    @media (max-width: 768px) {
+        #main-footer { padding-bottom: 80px; } /* Espacio para que no choque con menús móviles si los hubiera */
+    }
+</style>
 
+<footer id="main-footer">
+    <p>© 2024 Atlas de Flora y Fauna de España. Todos los derechos reservados.</p>
+    <p>
+        <a href="politica-privacidad.html">Política de Privacidad</a> | 
+        <a href="contacto.html">Sobre Nosotros y Contacto</a>
+    </p>
+</footer>
     </script>
 <div id="cookie-banner">
     <div id="cookie-text">
