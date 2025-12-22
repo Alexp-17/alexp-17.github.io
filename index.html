@@ -829,16 +829,21 @@
             document.getElementById('lightbox').classList.remove('active');
         }
 </script> <style>
-    /* Estilos rápidos para el footer */
+    /* Estilos rápidos para el footer - ARREGLADO */
     #main-footer {
-        background-color: #1b5e20; /* Verde oscuro a juego */
+        background-color: #1b5e20;
         color: white;
         text-align: center;
-        padding: 15px;
+        padding: 10px;
         font-size: 13px;
-        position: relative;
-        z-index: 2000; /* Por encima del mapa pero debajo del banner de cookies */
-        width: 100%;
+        
+        /* ESTO ES LO QUE ARREGLA LA PANTALLA VERDE: */
+        position: fixed; 
+        bottom: 0;
+        right: 0;
+        width: calc(100% - 500px); /* Ocupa todo MENOS la barra lateral (500px) */
+        
+        z-index: 2000;
         font-family: 'Montserrat', sans-serif;
     }
     #main-footer a {
@@ -849,9 +854,12 @@
     }
     #main-footer a:hover { text-decoration: underline; color: white; }
     
-    /* Ajuste para móvil: que el footer no tape botones */
+    /* Ajuste para móvil: Aquí sí queremos que ocupe todo el ancho */
     @media (max-width: 768px) {
-        #main-footer { padding-bottom: 80px; } /* Espacio para que no choque con menús móviles si los hubiera */
+        #main-footer { 
+            width: 100%; 
+            padding-bottom: 80px; 
+        }
     }
 </style>
 
