@@ -610,14 +610,32 @@
             },
 
             // MADRID
-            { name: "Madrid", 
+            {{ 
+              name: "Madrid", 
               matchNames: ["Madrid", "Comunidad de Madrid"],
               affiliateText: "🌲 Excursiones en Guadarrama",
               affiliateLink: "#",
-              flora: "Zonación clara: Piornales de alta montaña y pinares de pino silvestre en la sierra; encinares y retamares en la rampa y sur.", 
-              fauna: "Cabra Montés en La Pedriza y Peñalara. Buitre Negro (gran colonia en Rascafría) y Águila Imperial. Riqueza de anfibios.", 
-              parks: "Parque Nacional Sierra de Guadarrama, PR Cuenca Alta del Manzanares.",
-              images: [{url: "https://via.placeholder.com/400x250?text=MADRID+1", caption: "Paisaje 1"}, {url: "https://via.placeholder.com/400x250?text=MADRID+2", caption: "Paisaje 2"}, {url: "https://via.placeholder.com/400x250?text=MADRID+3", caption: "Paisaje 3"}, {url: "https://via.placeholder.com/400x250?text=MADRID+4", caption: "Paisaje 4"}]
+              flora: `
+                <h3>Del Encinar a la Alta Montaña</h3>
+                <p>La biodiversidad madrileña destaca por su marcada <strong>zonación altitudinal</strong>. En la Rampa de la Sierra y la cuenca sedimentaria domina el bosque mediterráneo; el mejor ejemplo es el <strong>Monte de El Pardo</strong>, considerado uno de los encinares adehesados mejor conservados de Europa.</p>
+                
+                <p>Al ganar altura hacia la <strong>Sierra de Guadarrama</strong>, el paisaje cambia radicalmente. Aparecen los robledales y, sobre todo, los extensos bosques de <strong>pino silvestre</strong> (pino de Valsaín) que cubren las laderas. En las cumbres, el frío impone el dominio de los <strong>piornales serranos</strong> y pastizales de alta montaña.</p>
+
+                <p>Una joya botánica imprescindible es el <strong>Hayedo de Montejo</strong>, en la Sierra del Rincón, un bosque relicto de hayas declarado Patrimonio de la Humanidad por su rareza en esta latitud sur.</p>
+              `, 
+              fauna: `
+                <h3>Santuario de Rapaces y Grandes Mamíferos</h3>
+                <p>La biodiversidad animal de Madrid es sorprendente por su cercanía a la gran urbe. El <strong>Monte de El Pardo</strong> actúa como un verdadero "Arca de Noé", albergando densidades excepcionales de <strong>ciervos</strong>, <strong>gamos</strong> y jabalíes. Sin embargo, su mayor tesoro es alado: es uno de los refugios más importantes del mundo para el amenazado <strong>Águila Imperial Ibérica</strong>.</p>
+
+                <p>Hacia las cumbres de la <strong>Sierra de Guadarrama</strong>, especialmente en los riscos de La Pedriza, la protagonista absoluta es la <strong>Cabra Montés</strong>, fácil de observar saltando por el granito. Los cielos del Valle del Lozoya (Rascafría) protegen una inmensa colonia de <strong>Buitre Negro</strong>. Además, en los últimos años se ha confirmado la presencia estable del <strong>Lobo Ibérico</strong> en los pasos de montaña, recuperando su territorio ancestral.</p>
+              `, 
+              parks: "Parque Nacional Sierra de Guadarrama, PR Cuenca Alta del Manzanares, Hayedo de Montejo.",
+              images: [
+                {url: "https://via.placeholder.com/400x250?text=MADRID+1", caption: "Paisaje 1"}, 
+                {url: "https://via.placeholder.com/400x250?text=MADRID+2", caption: "Paisaje 2"}, 
+                {url: "https://via.placeholder.com/400x250?text=MADRID+3", caption: "Paisaje 3"}, 
+                {url: "https://via.placeholder.com/400x250?text=MADRID+4", caption: "Paisaje 4"}
+              ]
             },
 
             // MURCIA
