@@ -1690,36 +1690,36 @@
             document.getElementById('lightbox').classList.remove('active');
         }
 </script> <style>
-    /* Estilos rápidos para el footer - ARREGLADO */
+   /* Estilos para el footer - VERSIÓN CORREGIDA PARA QUE NO TAPE */
     #main-footer {
         background-color: #1b5e20;
         color: white;
         text-align: center;
-        padding: 10px;
+        padding: 15px;
         font-size: 13px;
-        
-        /* ESTO ES LO QUE ARREGLA LA PANTALLA VERDE: */
-        position: fixed; 
-        bottom: 0;
-        right: 0;
-        width: calc(100% - 500px); /* Ocupa todo MENOS la barra lateral (500px) */
-        
-        z-index: 2000;
         font-family: 'Montserrat', sans-serif;
+        z-index: 2000;
+
+        /* AQUÍ ESTÁ EL CAMBIO CLAVE: */
+        position: relative; /* Cambiado de 'fixed' a 'relative' para que no flote encima */
+        margin-left: 500px; /* Dejamos el hueco de la barra lateral (que mide 500px) */
+        width: calc(100% - 500px); /* Ocupa el resto del ancho */
     }
+
     #main-footer a {
         color: #a5d6a7;
         text-decoration: none;
         margin: 0 10px;
         font-weight: bold;
     }
-    #main-footer a:hover { text-decoration: underline; color: white; }
     
-    /* Ajuste para móvil: Aquí sí queremos que ocupe todo el ancho */
-    @media (max-width: 768px) {
-        #main-footer { 
-            width: 100%; 
-            padding-bottom: 80px; 
+    #main-footer a:hover { text-decoration: underline; color: white; }
+
+    /* Ajuste para pantallas pequeñas o divididas */
+    @media (max-width: 1000px) {
+        #main-footer {
+            width: 100%;       /* En pantallas estrechas, ocupa todo el ancho */
+            margin-left: 0;    /* Quitamos el margen izquierdo */
         }
     }
 </style>
