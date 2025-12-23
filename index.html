@@ -1690,36 +1690,39 @@
             document.getElementById('lightbox').classList.remove('active');
         }
 </script> <style>
-   /* Estilos para el footer - VERSIÓN CORREGIDA PARA QUE NO TAPE */
+   /* Estilos corregidos para el footer */
     #main-footer {
-        background-color: #1b5e20;
+        background-color: rgba(27, 94, 32, 0.95); /* Verde semitransparente */
         color: white;
         text-align: center;
-        padding: 15px;
-        font-size: 13px;
+        padding: 5px 10px; /* Menos relleno para que sea más bajito */
+        font-size: 11px; /* Letra pequeña pero legible */
         font-family: 'Montserrat', sans-serif;
         z-index: 2000;
 
-        /* AQUÍ ESTÁ EL CAMBIO CLAVE: */
-        position: relative; /* Cambiado de 'fixed' a 'relative' para que no flote encima */
-        margin-left: 500px; /* Dejamos el hueco de la barra lateral (que mide 500px) */
-        width: calc(100% - 500px); /* Ocupa el resto del ancho */
+        /* VOLVEMOS A FIXED PARA VER EL MAPA */
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        /* Ocupa solo el espacio del mapa (restamos los 500px de la barra lateral) */
+        width: calc(100% - 500px); 
     }
 
     #main-footer a {
         color: #a5d6a7;
         text-decoration: none;
-        margin: 0 10px;
+        margin: 0 8px;
         font-weight: bold;
     }
     
     #main-footer a:hover { text-decoration: underline; color: white; }
 
-    /* Ajuste para pantallas pequeñas o divididas */
-    @media (max-width: 1000px) {
+    /* Ajuste para pantallas MUY estrechas (Móvil vertical) */
+    @media (max-width: 600px) {
         #main-footer {
-            width: 100%;       /* En pantallas estrechas, ocupa todo el ancho */
-            margin-left: 0;    /* Quitamos el margen izquierdo */
+            width: 100%;       /* Solo en móvil ocupa todo el ancho */
+            font-size: 10px;
+            padding: 8px;
         }
     }
 </style>
