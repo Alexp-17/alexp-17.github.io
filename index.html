@@ -49,7 +49,7 @@
         /* MAPA (PC) */
         #map { flex-grow: 1; height: 100%; background-color: #aad3df; z-index: 1; }
 
-        /* --- VERSIÓN MÓVIL (ARREGLADA) --- */
+       /* --- VERSIÓN MÓVIL (CORREGIDA PARA FOOTER AL FINAL) --- */
         @media (max-width: 768px) {
             body { flex-direction: column-reverse; }
             
@@ -59,18 +59,35 @@
                 border-right: none;
                 border-top: 4px solid var(--primary);
                 border-radius: 20px 20px 0 0;
+                
+                /* CAMBIOS CLAVE: */
+                display: block;      /* Quitamos flex para que sea un bloque normal */
+                overflow-y: auto;    /* El scroll lo tiene ahora la caja entera */
+            }
+
+            /* Para que el título se quede fijo arriba mientras bajas (Opcional, queda mejor) */
+            #header {
+                position: sticky;
+                top: 0;
+                z-index: 10;
             }
 
             #map { width: 100%; height: 50vh; }
 
-            /* Espacio extra abajo para que el botón no se corte en el móvil */
-            #content { padding: 20px; padding-bottom: 120px; }
+            /* El contenido ya no recorta, se estira hacia abajo */
+            #content { 
+                padding: 20px; 
+                overflow: visible; 
+                height: auto; 
+            }
             
             .province-img { height: 90px; }
-/* Asegura que el footer se vea por encima de la barra del navegador */
-    #main-footer {
-        padding-bottom: 60px !important; 
-    }
+
+            /* El footer aparece al final del todo, con espacio para no cortarse */
+            #main-footer {
+                position: static;
+                padding-bottom: 80px !important; 
+            }
         }
 
         /* --- RESTO DE ESTILOS --- */
