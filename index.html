@@ -49,41 +49,48 @@
         /* MAPA (PC) */
         #map { flex-grow: 1; height: 100%; background-color: #aad3df; z-index: 1; }
 
-       /* --- VERSIÓN MÓVIL (CORREGIDA PARA FOOTER AL FINAL) --- */
+     /* --- VERSIÓN MÓVIL (CORREGIDA + ACORDEÓN) --- */
         @media (max-width: 768px) {
             body { flex-direction: column-reverse; }
             
             #sidebar {
                 width: 100%;
-                height: 50vh;
+                height: 50vh; /* Altura normal inicial */
                 border-right: none;
                 border-top: 4px solid var(--primary);
                 border-radius: 20px 20px 0 0;
-                
-                /* CAMBIOS CLAVE: */
-                display: block;      /* Quitamos flex para que sea un bloque normal */
-                overflow-y: auto;    /* El scroll lo tiene ahora la caja entera */
+                display: block;      
+                overflow-y: auto;   
+                transition: height 0.4s ease-in-out; /* Animación suave */
             }
 
-            /* Para que el título se quede fijo arriba mientras bajas (Opcional, queda mejor) */
             #header {
                 position: sticky;
                 top: 0;
                 z-index: 10;
+                cursor: pointer; /* Manita para indicar clic */
             }
 
-            #map { width: 100%; height: 50vh; }
+            #map { 
+                width: 100%; 
+                height: 50vh; /* Altura normal inicial */
+                transition: height 0.4s ease-in-out; /* Animación suave */
+            }
 
-            /* El contenido ya no recorta, se estira hacia abajo */
+            /* --- ESTADO "MODO LECTURA" (EXPANDIDO) --- */
+            body.modo-lectura #sidebar {
+                height: 80vh !important; /* El panel crece mucho */
+            }
+            body.modo-lectura #map {
+                height: 20vh !important; /* El mapa se hace pequeñito */
+            }
+
             #content { 
                 padding: 20px; 
                 overflow: visible; 
                 height: auto; 
             }
-            
             .province-img { height: 90px; }
-
-            /* El footer aparece al final del todo, con espacio para no cortarse */
             #main-footer {
                 position: static;
                 padding-bottom: 80px !important; 
@@ -1646,7 +1653,13 @@
             return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
         }
 
-        function showInfo(mapName) {
+       function showInfo(mapName) {
+            
+            // --- PEGA ESTO AQUÍ (Líneas nuevas) ---
+            if (window.innerWidth < 768) {
+                document.body.classList.add('modo-lectura');
+            }
+
             const mapNameNorm = normalize(mapName);
             
             // BUSCADOR INTELIGENTE
@@ -1852,7 +1865,20 @@
             cookieBanner.style.display = "none";
         });
     });
+// --- CERRAR ACORDEÓN EN MÓVIL ---
+        // Al tocar el título verde
+        document.getElementById('header').addEventListener('click', function() {
+            if (window.innerWidth < 768) {
+                document.body.classList.remove('modo-lectura');
+            }
+        });
 
+        // Al tocar el mapa
+        map.on('click', function() {
+            if (window.innerWidth < 768) {
+                document.body.classList.remove('modo-lectura');
+            }
+        });
 </script>
 
 <script async data-id="101498909" src="//static.getclicky.com/js"></script>
