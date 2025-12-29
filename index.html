@@ -1797,6 +1797,41 @@
             cookieBanner.style.display = "none";
         });
     });
+
+
+// --- CÓDIGO NUEVO PARA SEO (Mejora para AdSense) ---
+        // Esto genera una lista de texto visible al inicio para que Google lea el contenido
+        document.addEventListener("DOMContentLoaded", function() {
+            // Solo si estamos en la portada (sin provincia seleccionada)
+            if (!window.location.hash) {
+                const contentDiv = document.getElementById('content');
+                // Buscamos el div de bienvenida que ya tienes
+                const introDiv = contentDiv.querySelector('div'); 
+                
+                if (introDiv) {
+                    let htmlIndex = `
+                        <div id="seo-index" style="margin-top: 30px; text-align: left; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                            <h3 style="font-family: 'Montserrat'; font-size: 16px; color: #2e7d32; margin-bottom: 15px;">📖 Índice de Biodiversidad por Provincias</h3>
+                            <p style="font-size: 13px; color: #666; margin-bottom: 20px;">Explora la guía completa de flora, fauna y espacios naturales de España:</p>
+                            <div style="display: grid; grid-template-columns: 1fr; gap: 10px;">
+                    `;
+
+                    // Generamos un enlace para cada provincia automáticamente
+                    provinciasData.forEach(p => {
+                        htmlIndex += `
+                            <a href="#${p.name}" onclick="showInfo('${p.name}')" style="text-decoration: none; display: block; padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: transform 0.2s;">
+                                <strong style="color: #2e7d32; display: block; font-size: 14px;">${p.name}</strong>
+                                <span style="font-size: 12px; color: #7f8c8d;">Flora, fauna y espacios protegidos.</span>
+                            </a>
+                        `;
+                    });
+
+                    htmlIndex += '</div></div>';
+                    // Añadimos esto debajo del mensaje de "Toca el mapa"
+                    introDiv.innerHTML += htmlIndex;
+                }
+            }
+        });
 </script>
 </body>
 </html>
