@@ -43,6 +43,8 @@
         }
         #header h1 { margin: 0; font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 800; letter-spacing: 1px; }
         #header p { margin: 5px 0 0; font-size: 14px; opacity: 0.9; }
+/* Ocultamos la flecha por defecto (para que no salga en PC) */
+        .flecha-movil { display: none; }
 
         #content { padding: 30px; overflow-y: auto; flex-grow: 1; scroll-behavior: smooth; }
 
@@ -164,7 +166,19 @@
         
         @media (max-width: 768px) {
             #cookie-banner { flex-direction: column; text-align: center; padding-bottom: 25px; }
-        }
+/* --- ESTILOS DE LA FLECHA (Solo móvil) --- */
+            .flecha-movil {
+                display: block;         /* Que se vea */
+                font-size: 24px;        /* Tamaño grandecito */
+                margin-bottom: -5px;    /* Pegadito al título */
+                transition: transform 0.4s ease; /* Que gire suave */
+            }
+
+            /* Cuando el panel está expandido, giramos la flecha */
+            body.modo-lectura .flecha-movil {
+                transform: rotate(180deg); /* Se pone boca abajo (▼) */
+            }       
+	 }
     </style>
 <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
   (function () {
@@ -187,6 +201,7 @@
 
     <div id="sidebar">
         <div id="header">
+		<div class="flecha-movil">▲</div>
             <h1>NATURALEZA DE ESPAÑA</h1>
             <p>Atlas interactivo de biodiversidad provincial</p>
         </div>
