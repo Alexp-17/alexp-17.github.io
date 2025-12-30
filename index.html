@@ -179,6 +179,35 @@
                 transform: rotate(180deg); /* Se pone boca abajo (▼) */
             }       
 	 }
+/* --- LISTA FLOTANTE Y ARREGLOS --- */
+        #lista-flotante-pc {
+            position: absolute; top: 20px; right: 20px; width: 260px; max-height: 85vh;
+            background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 1000; overflow-y: auto;
+            backdrop-filter: blur(5px); display: none; /* Oculto por defecto */
+        }
+        /* En PC (pantallas grandes) mostramos la lista flotante */
+        @media (min-width: 769px) {
+            #lista-flotante-pc { display: block; }
+            .solo-movil { display: none !important; }
+        }
+        /* En MÓVIL ocultamos la flotante y ajustamos el contenido */
+        @media (max-width: 768px) {
+            #lista-flotante-pc { display: none !important; }
+            .solo-movil { display: block; }
+            #content { padding-bottom: 100px; } 
+        }
+
+        /* Estilos bonitos para los enlaces de la lista */
+        #lista-flotante-pc h3, .solo-movil h3 { 
+            margin-top: 0; color: var(--primary); font-size: 16px; 
+            border-bottom: 2px solid #ddd; padding-bottom: 10px; 
+        }
+        .link-provincia {
+            display: block; padding: 6px 0; text-decoration: none; color: #333; 
+            font-size: 14px; border-bottom: 1px solid #eee; transition: 0.2s;
+        }
+        .link-provincia:hover { color: var(--primary); padding-left: 5px; font-weight: bold; }
     </style>
 <script data-noptimize="1" data-cfasync="false" data-wpfc-render="false">
   (function () {
@@ -211,50 +240,6 @@
                 <p>Toca el mapa para ver la información.</p>
             </div>
         </div>
-<section style="max-width: 1200px; margin: 40px auto; padding: 20px; font-family: 'Montserrat', sans-serif; color: #444; line-height: 1.6;">
-    <h2 style="color: var(--primary); font-size: 24px; border-bottom: 2px solid var(--primary); padding-bottom: 10px; margin-bottom: 20px;">
-        🌿 Guía Interactiva de la Biodiversidad en España
-    </h2>
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-        
-        <div>
-            <h3 style="color: #2e7d32; font-size: 18px;">¿Qué es este Atlas de Naturaleza?</h3>
-            <p>
-                Este mapa interactivo es la herramienta definitiva para los amantes del ecoturismo y la biología. 
-                Aquí encontrarás una recopilación exhaustiva de la <strong>flora y fauna</strong> más representativa 
-                de cada una de las 50 provincias de España. Desde los osos pardos de la Cordillera Cantábrica 
-                hasta las especies endémicas de las Islas Canarias.
-            </p>
-        </div>
-
-        <div>
-            <h3 style="color: #2e7d32; font-size: 18px;">Turismo de Observación Responsable</h3>
-            <p>
-                España es el país con mayor biodiversidad de Europa. Nuestro objetivo es fomentar un turismo 
-                sostenible. Descubre dónde ver al <strong>lince ibérico</strong> en Andalucía, el quebrantahuesos 
-                en los Pirineos o las grandes migraciones de aves en el Delta del Ebro. Toda la información 
-                está pensada para respetar los hábitats naturales.
-            </p>
-        </div>
-
-        <div>
-            <h3 style="color: #2e7d32; font-size: 18px;">Especies Emblemáticas</h3>
-            <p>
-                A través de nuestro visor geográfico, podrás localizar los santuarios de especies clave como:
-                <strong>El Lobo Ibérico</strong> (Castilla y León, Galicia), <strong>El Águila Imperial</strong> 
-                (Centro peninsular) y la rica biodiversidad marina de nuestras costas. Planifica tu próxima 
-                escapada rural con información veraz y actualizada.
-            </p>
-        </div>
-        
-    </div>
-    
-    <p style="margin-top: 30px; font-size: 14px; color: #666; text-align: center;">
-        <em>Selecciona una provincia en el mapa superior para desplegar la ficha completa con fotos, 
-        listados de especies y espacios naturales protegidos.</em>
-    </p>
-</section>
 <footer id="main-footer">
     <p>© 2024 Atlas de Flora y Fauna de España. Todos los derechos reservados.</p>
     <p>
@@ -267,7 +252,9 @@
 </footer>
     </div>
 
-    <div id="map"></div>
+    <div id="map">
+        <div id="lista-flotante-pc"></div> 
+    </div>
 
     <script>
         var map = L.map('map', { zoomControl: false }).setView([40.0, -3.7], 6);
@@ -1780,58 +1767,96 @@
         }
 
        // --- LÓGICA DE NAVEGACIÓN DEFINITIVA (Sustituye a tu checkHash actual) ---
+       // 1. TEXTO SEO (EL ORIGINAL QUE TE GUSTABA)
+        const textoSEO = `
+            <section style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #eee; color: #444; line-height: 1.6; font-family: 'Montserrat', sans-serif;">
+                <h2 style="color: var(--primary); font-size: 18px; border-bottom: 2px solid var(--primary); padding-bottom: 10px; margin-bottom: 20px;">
+                    🌿 Guía Interactiva de la Biodiversidad
+                </h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    
+                    <div>
+                        <h3 style="color: #2e7d32; font-size: 15px; margin-bottom: 5px;">¿Qué es este Atlas de Naturaleza?</h3>
+                        <p style="font-size: 13px; text-align: justify;">
+                            Este mapa interactivo es la herramienta definitiva para los amantes del ecoturismo y la biología. 
+                            Aquí encontrarás una recopilación exhaustiva de la <strong>flora y fauna</strong> más representativa 
+                            de cada una de las 50 provincias de España. Desde los osos pardos de la Cordillera Cantábrica 
+                            hasta las especies endémicas de las Islas Canarias.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 style="color: #2e7d32; font-size: 15px; margin-bottom: 5px;">Turismo de Observación Responsable</h3>
+                        <p style="font-size: 13px; text-align: justify;">
+                            España es el país con mayor biodiversidad de Europa. Nuestro objetivo es fomentar un turismo 
+                            sostenible. Descubre dónde ver al <strong>lince ibérico</strong> en Andalucía, el quebrantahuesos 
+                            en los Pirineos o las grandes migraciones de aves en el Delta del Ebro. Toda la información 
+                            está pensada para respetar los hábitats naturales.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 style="color: #2e7d32; font-size: 15px; margin-bottom: 5px;">Especies Emblemáticas</h3>
+                        <p style="font-size: 13px; text-align: justify;">
+                            A través de nuestro visor geográfico, podrás localizar los santuarios de especies clave como:
+                            <strong>El Lobo Ibérico</strong> (Castilla y León, Galicia), <strong>El Águila Imperial</strong> 
+                            (Centro peninsular) y la rica biodiversidad marina de nuestras costas. Planifica tu próxima 
+                            escapada rural con información veraz y actualizada.
+                        </p>
+                    </div>
+                    
+                </div>
+            </section>
+        `;
+
+        // 2. FUNCIÓN CHECKHASH (Esta no cambia, solo usa el texto de arriba)
         function checkHash() {
-            var hash = window.location.hash.substring(1); // Quita el #
+            var hash = window.location.hash.substring(1);
             
+            // Generamos la lista de enlaces
+            let htmlListaLinks = '';
+            provinciasData.forEach(p => {
+                htmlListaLinks += `<a href="#${encodeURIComponent(p.name)}" onclick="showInfo('${p.name}')" class="link-provincia">${p.name}</a>`;
+            });
+
             if (hash) {
-                // CASO A: Hay provincia (ej: #Madrid) -> Mostramos Info
+                // CASO A: Provincia seleccionada
                 var provinceName = decodeURIComponent(hash);
                 showInfo(provinceName);
-            } else {
-                // CASO B: Estamos en el INICIO -> Mostramos Mapa + Lista
                 
-                // 1. Limpiamos el contenido (¡ESTO EVITA LOS DUPLICADOS!)
-                // Restauramos el mensaje de bienvenida original
+                // En PC, mantenemos la lista flotante
+                document.getElementById('lista-flotante-pc').innerHTML = `<h3>Otras Provincias</h3>${htmlListaLinks}`;
+
+            } else {
+                // CASO B: Inicio (Home)
+                
+                // 1. Rellenamos lista flotante PC
+                document.getElementById('lista-flotante-pc').innerHTML = `<h3>📍 Selecciona Provincia</h3>${htmlListaLinks}`;
+
+                // 2. Rellenamos el panel lateral
                 const contentDiv = document.getElementById('content');
+                
                 contentDiv.innerHTML = `
-                    <div style="text-align: center; color: #b0bec5; margin-top: 30%; padding: 0 20px;">
-                        <h3 style="font-family: 'Montserrat'; font-size: 20px;">Selecciona una provincia</h3>
-                        <p>Toca el mapa para ver la información.</p>
+                    <div style="text-align: center; color: #2e7d32; margin-top: 20px; padding: 0 10px;">
+                        <h2 style="font-family: 'Montserrat'; font-size: 22px;">NATURALEZA DE ESPAÑA</h2>
+                        <p style="color: #666;">Descubre la biodiversidad provincia a provincia</p>
                     </div>
+
+                    <div class="solo-movil" style="margin-top: 20px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                        <h3>📜 Lista de Provincias</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                            ${htmlListaLinks}
+                        </div>
+                    </div>
+
+                    ${textoSEO}
                 `;
                 
-                // 2. Reseteamos el mapa (zoom fuera y quitar naranja)
                 map.setView([40.0, -3.7], 6); 
                 map.eachLayer(function (layer) {
-                    if (layer.feature) {
-                        resetHighlight({target: layer});
-                    }
+                    if (layer.feature) resetHighlight({target: layer});
                 });
-
-                // 3. Generamos el índice SEO CORREGIDO
-                // Buscamos el div que acabamos de crear
-                const introDiv = contentDiv.querySelector('div');
-                let htmlIndex = `
-                    <div id="seo-index" style="margin-top: 30px; text-align: left; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
-                        <h3 style="font-family: 'Montserrat'; font-size: 16px; color: #2e7d32; margin-bottom: 15px;">📖 Índice de Biodiversidad por Provincias</h3>
-                        <p style="font-size: 13px; color: #666; margin-bottom: 20px;">Explora la guía completa de flora, fauna y espacios naturales de España:</p>
-                        <div style="display: grid; grid-template-columns: 1fr; gap: 10px;">
-                `;
-
-                provinciasData.forEach(p => {
-                    // AQUÍ ESTÁ EL ARREGLO PARA VALENCIA/ALICANTE:
-                    // Usamos encodeURIComponent(p.name) para que el enlace ya nazca "sano"
-                    // y no cree conflictos en el historial al ir hacia atrás.
-                    htmlIndex += `
-                        <a href="#${encodeURIComponent(p.name)}" onclick="showInfo('${p.name}')" style="text-decoration: none; display: block; padding: 10px; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: transform 0.2s;">
-                            <strong style="color: #2e7d32; display: block; font-size: 14px;">${p.name}</strong>
-                            <span style="font-size: 12px; color: #7f8c8d;">Flora, fauna y espacios protegidos.</span>
-                        </a>
-                    `;
-                });
-
-                htmlIndex += '</div></div>';
-                introDiv.innerHTML += htmlIndex;
             }
         }
 
