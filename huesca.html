@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flora y Fauna de Huesca - Atlas de España</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #2e7d32; --accent: #ff9800; }
+        body { margin: 0; font-family: 'Lato', sans-serif; background: #f4f9f4; color: #333; }
+        header { background: linear-gradient(135deg, var(--primary), #1b5e20); color: white; padding: 20px; text-align: center; }
+        h1 { margin: 0; font-family: 'Montserrat', sans-serif; }
+        .container { max-width: 800px; margin: 30px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { color: #1b5e20; font-family: 'Montserrat', sans-serif; border-bottom: 3px solid #a5d6a7; padding-bottom: 10px; }
+        h3 { color: #e65100; font-family: 'Montserrat', sans-serif; margin-top: 30px; }
+        p { line-height: 1.8; font-size: 16px; color: #444; text-align: justify; }
+        .galeria { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
+        .btn-volver { display: inline-block; margin-bottom: 20px; color: var(--primary); text-decoration: none; font-weight: bold; }
+        footer { text-align: center; margin-top: 50px; padding: 20px; font-size: 12px; color: #666; border-top: 1px solid #ddd; }
+        footer a { color: var(--primary); text-decoration: none; margin: 0 10px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NATURALEZA DE HUESCA</h1>
+        <p>Atlas interactivo de biodiversidad provincial</p>
+    </header>
+    <div class="container">
+        <a href="index.html" class="btn-volver">⬅ Volver al Mapa Interactivo</a>
+        <h2>Del Glaciar al Desierto de Monegros</h2>
+        <p>Huesca presenta uno de los gradientes altitudinales más extremos de España. En las altas cumbres del <strong>Parque Nacional de Ordesa y Monte Perdido</strong>, la flora es de carácter alpino y relíctico, con especies como la <strong>Flor de Nieve</strong> (Edelweiss), símbolo de la resistencia al frío. Los bosques se dividen entre los abetales y hayedos en las zonas húmedas, y los bosques de pino negro que alcanzan el límite de la vegetación antes de la roca desnuda.</p>
+        <p>Hacia el sur, el paisaje cambia drásticamente en los <strong>Monegros</strong>. Aquí, la aridez manda, permitiendo la existencia de sabinares de <strong>Sabina Albar</strong>, árboles de crecimiento lentísimo capaces de soportar climas extremos. Es un ecosistema estepario único en Europa que contrasta con la exuberancia de los valles del Pirineo central.</p>
+        <h3>El Dominio del Quebrantahuesos</h3>
+        <p>Huesca es el bastión mundial del <strong>Quebrantahuesos</strong>. En los cañones de Ordesa y la Sierra de Guara, esta impresionante rapaz carroñera encuentra los cortados ideales para anidar. Comparte el cielo con el Buitre Leonado y el Águila Real. En las zonas altas, el <strong>Sarrio</strong> (el rebeco pirenaico) es el protagonista de los riscos, mientras que la Marmota silba desde los prados alpinos para advertir de peligros.</p>
+        <p>En los bosques más cerrados de la Jacetania, aún resiste una de las últimas poblaciones del <strong>Urogallo</strong>. Los ríos de montaña, de aguas gélidas y oxigenadas, son el hogar de la Trucha Común y del <strong>Desmán Ibérico</strong>, un pequeño mamífero acuático muy sensible a la contaminación. En los llanos del sur, las aves esteparias como la Avutarda y el Sisón son las reinas de la llanura.</p>
+        <div class="galeria">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Monte_Perdido_desde_Ordesa.jpg/640px-Monte_Perdido_desde_Ordesa.jpg" alt="Monte Perdido">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Sarrio_de_Benasque.JPG/640px-Sarrio_de_Benasque.JPG" alt="Sarrio en Huesca">
+        </div>
+        <footer>
+            <p>© 2024 Atlas de Flora y Fauna de España.</p>
+            <p><a href="politica-privacidad.html">Política de Privacidad</a> | <a href="contacto.html">Contacto</a> | <a href="index.html">Volver al Mapa</a></p>
+        </footer>
+    </div>
+</body>
+</html>
