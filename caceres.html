@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flora y Fauna de Cáceres - Atlas de España</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #2e7d32; --accent: #ff9800; }
+        body { margin: 0; font-family: 'Lato', sans-serif; background: #f4f9f4; color: #333; }
+        header { background: linear-gradient(135deg, var(--primary), #1b5e20); color: white; padding: 20px; text-align: center; }
+        h1 { margin: 0; font-family: 'Montserrat', sans-serif; }
+        .container { max-width: 800px; margin: 30px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { color: #1b5e20; font-family: 'Montserrat', sans-serif; border-bottom: 3px solid #a5d6a7; padding-bottom: 10px; }
+        h3 { color: #e65100; font-family: 'Montserrat', sans-serif; margin-top: 30px; }
+        p { line-height: 1.8; font-size: 16px; color: #444; text-align: justify; }
+        .galeria { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
+        .btn-volver { display: inline-block; margin-bottom: 20px; color: var(--primary); text-decoration: none; font-weight: bold; }
+        footer { text-align: center; margin-top: 50px; padding: 20px; font-size: 12px; color: #666; border-top: 1px solid #ddd; }
+        footer a { color: var(--primary); text-decoration: none; margin: 0 10px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NATURALEZA DE CÁCERES</h1>
+        <p>Atlas interactivo de biodiversidad provincial</p>
+    </header>
+    <div class="container">
+        <a href="index.html" class="btn-volver">⬅ Volver al Mapa Interactivo</a>
+        <h2>La Dehesa Infinita y la Selva Mediterránea</h2>
+        <p>Cáceres es el paraíso de la dehesa. El paisaje dominante está compuesto por bosques aclarados de <strong>Encinas y Alcornoques</strong>, que se extienden por el <strong>Parque Nacional de Monfragüe</strong>. En las laderas más sombrías, este matorral se cierra formando una auténtica "selva mediterránea" de madroños, jaras y lentiscos, donde la humedad se conserva incluso en los veranos extremeños.</p>
+        <p>En el norte, la flora se vuelve más montañosa. El <strong>Valle del Jerte</strong> es famoso por sus miles de cerezos, pero la vegetación natural destaca por sus densos bosques de <strong>Roble Melojo</strong> (Rebollar), que en otoño tiñen de dorado las laderas de la Sierra de Gata y Las Hurdes. En las zonas fluviales, los bosques de ribera con alisos y fresnos protegen los cursos de agua cristalina.</p>
+        <h3>El Reino de las Grandes Rapaces</h3>
+        <p>Monfragüe es, posiblemente, el mejor lugar de Europa para la observación de rapaces. Aquí anida la mayor colonia mundial de <strong>Buitre Negro</strong>, junto al esquivo <strong>Águila Imperial Ibérica</strong>. En los roquedos del Salto del Gitano, el Buitre Leonado y la Cigüeña Negra comparten espacio, siendo esta última una de las joyas más raras de la avifauna ibérica.</p>
+        <p>En los ríos y embalses, la Nutria es frecuente, mientras que en las dehesas, el <strong>Ciervo</strong> y el Jabalí mantienen el equilibrio del ecosistema. Cáceres también es territorio de expansión para el <strong>Lince Ibérico</strong>, que ha vuelto a los montes de los Ibores y el Tajo Internacional. Por la noche, el Jineta y el Meloncillo recorren los senderos, completando un mosaico de fauna mediterránea inigualable.</p>
+        <div class="galeria">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Salto_del_Gitano_en_Monfrag%C3%BCe.jpg/640px-Salto_del_Gitano_en_Monfrag%C3%BCe.jpg" alt="Monfragüe">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Buitre_negro_en_vuelo.jpg/640px-Buitre_negro_en_vuelo.jpg" alt="Buitre Negro">
+        </div>
+        <footer>
+            <p>© 2024 Atlas de Flora y Fauna de España.</p>
+            <p><a href="politica-privacidad.html">Política de Privacidad</a> | <a href="contacto.html">Contacto</a> | <a href="index.html">Volver al Mapa</a></p>
+        </footer>
+    </div>
+</body>
+</html>
