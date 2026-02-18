@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flora y Fauna de Navarra - Atlas de España</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #2e7d32; --accent: #ff9800; }
+        body { margin: 0; font-family: 'Lato', sans-serif; background: #f4f9f4; color: #333; }
+        header { background: linear-gradient(135deg, var(--primary), #1b5e20); color: white; padding: 20px; text-align: center; }
+        h1 { margin: 0; font-family: 'Montserrat', sans-serif; }
+        .container { max-width: 800px; margin: 30px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { color: #1b5e20; font-family: 'Montserrat', sans-serif; border-bottom: 3px solid #a5d6a7; padding-bottom: 10px; }
+        h3 { color: #e65100; font-family: 'Montserrat', sans-serif; margin-top: 30px; }
+        p { line-height: 1.8; font-size: 16px; color: #444; text-align: justify; }
+        .galeria { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
+        .btn-volver { display: inline-block; margin-bottom: 20px; color: var(--primary); text-decoration: none; font-weight: bold; }
+        footer { text-align: center; margin-top: 50px; padding: 20px; font-size: 12px; color: #666; border-top: 1px solid #ddd; }
+        footer a { color: var(--primary); text-decoration: none; margin: 0 10px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NATURALEZA DE NAVARRA</h1>
+        <p>Atlas interactivo de biodiversidad provincial</p>
+    </header>
+    <div class="container">
+        <a href="index.html" class="btn-volver">⬅ Volver al Mapa</a>
+        <h2>Selva de Irati y el Desierto de Bardenas</h2>
+        <p>Navarra ofrece una diversidad única. Al norte, la Selva de Irati es el segundo hayedo más extenso de Europa. Al sur, las Bardenas Reales presentan un paisaje desértico de arcillas donde solo sobrevive la vegetación esteparia más resistente entre cárcavas y cabezos.</p>
+        <h3>El Quebrantahuesos y el Visón Europeo</h3>
+        <p>Navarra es el último refugio del Visón Europeo. En las cumbres, el Quebrantahuesos es el rey. La provincia es famosa por sus pasos migratorios: millones de aves cruzan los Pirineos por Lindux cada otoño, haciendo de Navarra un punto clave para la ornitología.</p>
+        <div class="galeria">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Irati%2C_oto%C3%B1o_1990_03.jpg/640px-Irati%2C_oto%C3%B1o_1990_03.jpg" alt="Selva de Irati">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Bardenas_Reales%2C_Navarra%2C_Espa%C3%B1a%2C_2015-01-06%2C_DD_03.JPG/640px-Bardenas_Reales%2C_Navarra%2C_Espa%C3%B1a%2C_2015-01-06%2C_DD_03.JPG" alt="Bardenas Reales">
+        </div>
+        <footer>
+            <p>© 2024 Atlas de Flora y Fauna de España.</p>
+            <p><a href="politica-privacidad.html">Privacidad</a> | <a href="contacto.html">Contacto</a></p>
+        </footer>
+    </div>
+</body>
+</html>

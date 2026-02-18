@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flora y Fauna de Granada - Atlas de España</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #2e7d32; --accent: #ff9800; }
+        body { margin: 0; font-family: 'Lato', sans-serif; background: #f4f9f4; color: #333; }
+        header { background: linear-gradient(135deg, var(--primary), #1b5e20); color: white; padding: 20px; text-align: center; }
+        h1 { margin: 0; font-family: 'Montserrat', sans-serif; }
+        .container { max-width: 800px; margin: 30px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { color: #1b5e20; font-family: 'Montserrat', sans-serif; border-bottom: 3px solid #a5d6a7; padding-bottom: 10px; }
+        h3 { color: #e65100; font-family: 'Montserrat', sans-serif; margin-top: 30px; }
+        p { line-height: 1.8; font-size: 16px; color: #444; text-align: justify; }
+        .galeria { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
+        .btn-volver { display: inline-block; margin-bottom: 20px; color: var(--primary); text-decoration: none; font-weight: bold; }
+        footer { text-align: center; margin-top: 50px; padding: 20px; font-size: 12px; color: #666; border-top: 1px solid #ddd; }
+        footer a { color: var(--primary); text-decoration: none; margin: 0 10px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NATURALEZA DE GRANADA</h1>
+        <p>Atlas interactivo de biodiversidad provincial</p>
+    </header>
+    <div class="container">
+        <a href="index.html" class="btn-volver">⬅ Volver al Mapa</a>
+        <h2>Cumbres Nevadas y Endemismos Únicos</h2>
+        <p>Granada alberga la mayor biodiversidad botánica de Europa. En las altas cumbres de Sierra Nevada, especies como la Estrella de las Nieves están adaptadas a sobrevivir bajo el hielo. En la costa, el microclima permite matorrales termófilos y flora exótica única en la península.</p>
+        <h3>La Cabra Montés y el Mar de Alborán</h3>
+        <p>Sierra Nevada es el santuario de la Cabra Montés, ágil escaladora de los riscos del Mulhacén. En el litoral, los acantilados de Maro-Cerro Gordo protegen corales naranjas y praderas de posidonia, mientras que en el interior se reintroduce el Quebrantahuesos.</p>
+        <div class="galeria">
+            <img src="https://images.unsplash.com/photo-1528048228650-0d2f4deedc67?q=80&w=940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sierra Nevada">
+            <img src="https://images.pexels.com/photos/35251986/pexels-photo-35251986.jpeg?_gl=1*15h7x32*_ga*Mzc4ODc3NjcwLjE3NjU5OTg5NjU.*_ga_8JE65Q40S6*czE3NjYwMDI4NDAkbzIkZzEkdDE3NjYwMDQ4NzkkajYwJGwwJGgw" alt="Cabra Montés">
+        </div>
+        <footer>
+            <p>© 2024 Atlas de Flora y Fauna de España.</p>
+            <p><a href="politica-privacidad.html">Privacidad</a> | <a href="contacto.html">Contacto</a></p>
+        </footer>
+    </div>
+</body>
+</html>

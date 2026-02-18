@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flora y Fauna de Cuenca - Atlas de España</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #2e7d32; --accent: #ff9800; }
+        body { margin: 0; font-family: 'Lato', sans-serif; background: #f4f9f4; color: #333; }
+        header { background: linear-gradient(135deg, var(--primary), #1b5e20); color: white; padding: 20px; text-align: center; }
+        h1 { margin: 0; font-family: 'Montserrat', sans-serif; }
+        .container { max-width: 800px; margin: 30px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { color: #1b5e20; font-family: 'Montserrat', sans-serif; border-bottom: 3px solid #a5d6a7; padding-bottom: 10px; }
+        h3 { color: #e65100; font-family: 'Montserrat', sans-serif; margin-top: 30px; }
+        p { line-height: 1.8; font-size: 16px; color: #444; text-align: justify; }
+        .galeria { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
+        .btn-volver { display: inline-block; margin-bottom: 20px; color: var(--primary); text-decoration: none; font-weight: bold; }
+        footer { text-align: center; margin-top: 50px; padding: 20px; font-size: 12px; color: #666; border-top: 1px solid #ddd; }
+        footer a { color: var(--primary); text-decoration: none; margin: 0 10px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NATURALEZA DE CUENCA</h1>
+        <p>Atlas interactivo de biodiversidad provincial</p>
+    </header>
+    <div class="container">
+        <a href="index.html" class="btn-volver">⬅ Volver al Mapa</a>
+        <h2>Ciudad Encantada y el Nacimiento del Cuervo</h2>
+        <p>Cuenca es el corazón de la Serranía. La geología manda: las formaciones de la Ciudad Encantada están rodeadas de pinos. En el Nacimiento del Río Cuervo, la humedad permite la existencia de orquídeas raras y un denso bosque de tilos y acebos.</p>
+        <h3>El Águila Perdicera y el Ciervo</h3>
+        <p>La Serranía de Cuenca es un gran refugio para grandes mamíferos como el Ciervo y el Gamo. Las Hoces de los ríos Júcar y Huécar son el hogar de rapaces como el Águila Perdicera y el Halcón Peregrino, que encuentran en los tajos el lugar perfecto para anidar.</p>
+        <div class="galeria">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Serran%C3%ADa_de_Cuenca_1979_35.jpg/640px-Serran%C3%ADa_de_Cuenca_1979_35.jpg" alt="Serranía de Cuenca">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Transparent_River_Cuervo_-_Nacimiento_del_r%C3%ADo_cuervo_%28source_of_the_Cuervo_River%29%2C_Cuenca_Province%2C_Spain_-_panoramio.jpg/640px-Transparent_River_Cuervo_-_Nacimiento_del_r%C3%ADo_cuervo_%28source_of_the_Cuervo_River%29%2C_Cuenca_Province%2C_Spain_-_panoramio.jpg" alt="Nacimiento del Río Cuervo">
+        </div>
+        <footer>
+            <p>© 2024 Atlas de Flora y Fauna de España.</p>
+            <p><a href="politica-privacidad.html">Privacidad</a> | <a href="contacto.html">Contacto</a></p>
+        </footer>
+    </div>
+</body>
+</html>
